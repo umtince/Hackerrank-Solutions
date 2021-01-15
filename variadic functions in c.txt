@@ -1,0 +1,67 @@
+
+int sum (int count,...) {
+    
+    int sum = 0;
+    
+    va_list argumentPtr;
+    va_start(argumentPtr, count);
+    
+    int i;
+    for(i = 0; i < count; i++)
+    {
+        sum += va_arg(argumentPtr, int);
+    }    
+
+    va_end(argumentPtr);
+    
+    return sum;
+
+}
+
+int min(int count,...) {
+
+    int min = MAX_ELEMENT;
+    int temp;
+    va_list argumentPtr;
+    va_start(argumentPtr, count);
+    
+    int i;
+    for(i = 0; i < count; i++)
+    {
+        temp = va_arg(argumentPtr, int);
+        if(temp < min)
+        {
+            min = temp;
+        }
+    }    
+
+    va_end(argumentPtr);
+    
+    return min;
+
+}
+
+int max(int count,...) {
+    
+    int max = MIN_ELEMENT;
+    int temp;
+    va_list argumentPtr;
+    va_start(argumentPtr, count);
+    
+    int i;
+    for(i = 0; i < count; i++)
+    {
+        temp = va_arg(argumentPtr, int);
+        
+        if(temp > max)
+        {
+            max = temp;
+        }
+    }    
+
+    va_end(argumentPtr);
+    
+    return max;
+    
+
+}
